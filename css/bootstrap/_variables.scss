@@ -17,12 +17,19 @@ $gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 60%) !default;   // #999
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
+$brand-primary:         #ff9d52 !default;
+$brand-success:         #4dff52 !default;
+$brand-info:            #6babff !default;
+$brand-warning:         #ffdc6b !default;
+$brand-danger:          #ff6b6b !default;
+
+/*
 $brand-primary:         #428bca !default;
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
-
+*/
 
 //== Scaffolding
 //
@@ -43,7 +50,7 @@ $link-hover-color:      darken($link-color, 15%) !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
@@ -142,6 +149,8 @@ $table-border-color:            #ddd !default;
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              #333 !default;
+$btn-default-color2:			 #999 !default;
+
 $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
 

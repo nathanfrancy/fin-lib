@@ -4,8 +4,21 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     
     uglify: {
+      my_target: {
+        files: {
+          'build/js/tvm.min.js': 'js/tvm.js',
+          'build/js/scripts.min.js' : 'js/scripts.js'
+        }
+      }
+    },
+
+    uglify: {
       build: {
-        src: ['build/js/bootstrap.min.js', 'src/scripts.js'],
+        src: 'js/tvm.js',
+        dest: 'build/js/tvm.min.js'
+      },
+      buil : {
+        src: 'js/scripts.js',
         dest: 'build/js/scripts.min.js'
       }
     },
