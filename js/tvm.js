@@ -27,7 +27,7 @@ function tvmN(pv, fv, ir) {
 // annuity
 
 function tvmPVad(r, n, pmt) {
-	return 
+	return pmt * ( (1 - ( Math.pow((1 + r), (-(n))) )) / r ) * (1 + r);
 }
 
 function tvmPVoa(r, n, pmt) {
@@ -40,4 +40,8 @@ function tvmFVoa(r, n, pmt) {
 
 function tvmFVad(r, n, pmt) {
     return pmt * (( Math.pow((1 + r), n) - 1) / r ) * (1 + r);
+}
+
+function tvmPMToa(n, r, pv) {
+	return pv / (((1 - Math.pow((1 + r), (-(n))))) / r );
 }
