@@ -105,3 +105,18 @@ function tvmFVad(r, n, pmt) {
 function tvmPMToa(n, r, pv) {
 	return pv / (((1 - Math.pow((1 + r), (-(n))))) / r );
 }
+
+/**
+ * Returns the payment of an ordinary annuity given the future value
+ * @param {Decimal} n : time
+ * @param {Decimal} r : annual rate of return
+ * @param {Decimal} fv : future value of the annuity
+ * @returns {Decimal} pmt : annual payment of the annuity
+ */
+function tvmPMToaF(n, r, fv) {
+    return fv / ( ( ( Math.pow( (1 + r), (n) ) ) - 1 ) / r );
+}
+
+function tvmPVAoadp {
+    return null;
+}
