@@ -109,7 +109,7 @@ function tvmPMToa(n, r, pv) {
 /**
  * Returns the payment of an ordinary annuity given the future value
  * @param {Decimal} n : time
- * @param {Decimal} r : annual rate of return
+ * @param {Decimal} r : annual interest rate
  * @param {Decimal} fv : future value of the annuity
  * @returns {Decimal} pmt : annual payment of the annuity
  */
@@ -117,6 +117,14 @@ function tvmPMToaF(n, r, fv) {
     return fv / ( ( ( Math.pow( (1 + r), (n) ) ) - 1 ) / r );
 }
 
-function tvmPVAoadp {
-    return null;
+/**
+ * Returns the present value of an ordinary annuity with a deferral period
+ * @param {Decimal} r : annual interest rate
+ * @param {Decimal} n : annual interest rate
+ * @param {Decimal} pmt : annual interest rate
+ * @param {Decimal} def : annual interest rate
+ * @returns {Decimal} pva : present value of an annuity with deferral period
+ */
+function tvmPVAoadp(r, n, pmt, def) {
+    return pmt * ( ( 1 - ( Math.pow( (1 + r), -n ) ) ) / r) * ( Math.pow((1 + r),(-def)) );
 }
