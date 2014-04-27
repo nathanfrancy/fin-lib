@@ -35,7 +35,22 @@ Returns the future value of an annuity due
 ####tvmPMToa(time, interest rate, present value) 
 Returns the payment of an ordinary annuity given the present value
 
-####tvmPMToaf(time, interest rate, present value) 
-Returns the payment of an ordinary annuity fiven the future value
+####tvmPMToaF(time, interest rate, present value) 
+Returns the payment of an ordinary annuity given the future value
+
+####tvmPVAoadp(interest rate, time, payment, deferral period)
+Returns the present value of an ordinary annuity with a deferral period
+
+####tvmPVP(payment, interest rate) 
+Returns the present value of a perpetuity with no deferral period
+
+####tvmPVPdp(interest rate, payment, deferral period)
+Returns the present value of a perpetuity with a deferral period
+
+####tvmPVPg(interest rate, payment, growth rate) 
+Returns the present value of a perpetuity with a deferral period
+
+####tvmPVPgdp(interest rate, payment, deferral period, growth rate)
+Returns the present value of a growing perpetuity with a deferral period
 
 <em>More documentation is on its way as functions are added!</em>

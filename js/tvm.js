@@ -120,11 +120,55 @@ function tvmPMToaF(n, r, fv) {
 /**
  * Returns the present value of an ordinary annuity with a deferral period
  * @param {Decimal} r : annual interest rate
- * @param {Decimal} n : annual interest rate
- * @param {Decimal} pmt : annual interest rate
- * @param {Decimal} def : annual interest rate
+ * @param {Decimal} n : time
+ * @param {Decimal} pmt : size of the payments
+ * @param {Decimal} def : deferral period
  * @returns {Decimal} pva : present value of an annuity with deferral period
  */
 function tvmPVAoadp(r, n, pmt, def) {
     return pmt * ( ( 1 - ( Math.pow( (1 + r), -n ) ) ) / r) * ( Math.pow((1 + r),(-def)) );
+}
+
+/**
+ * Returns the present value of a perpetuity with no deferral period
+ * @param {Decimal} pmt : payment
+ * @param {Decimal} r : annual interest rate
+ * @returns {Decimal} pvp : present value of a perpetuity
+ */
+function tvmPVP(pmt, r) {
+    return pmt / r;
+}
+
+/**
+ * Returns the present value of a perpetuity with a deferral period
+ * @param {Decimal} r : annual interest rate
+ * @param {Decimal} pmt : size of the payments
+ * @param {Decimal} def : deferral period
+ * @returns {Decimal} pvp : present value of a perpetuity with a deferral period
+ */
+function tvmPVPdp(r, pmt, def) {
+    return pmt * (1 / r) * ( Math.pow((1 + r), -(def)) );
+}
+
+/**
+ * Returns the present value of a perpetuity with a deferral period
+ * @param {Decimal} r : annual interest rate
+ * @param {Decimal} pmt : size of the payments
+ * @param {Decimal} g : growing rate
+ * @returns {Decimal} pvp : present value of a growing perpetuity
+ */
+function tvmPVPg(r, pmt, g) {
+    return pmt / ( r - g );
+}
+
+/**
+ * Returns the present value of a growing perpetuity with a deferral period
+ * @param {Decimal} r : annual interest rate
+ * @param {Decimal} pmt : size of the payments
+ * @param {Decimal} def : deferral period
+ * @param {Decimal} g : growing rate
+ * @returns {Decimal} pvp : present value of a growing perpetuity
+ */
+function tvmPVPgdp(r, pmt, def, g) {
+    return pmt * ( 1 / ( r - g ) ) * ( Math.pow( (1 + r), -(def) ) );
 }
