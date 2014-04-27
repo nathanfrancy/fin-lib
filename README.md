@@ -8,49 +8,49 @@ Here are a few examples of when you would want to use something like this:
 
 ## Documentation
 
-####tvmPV(future value, time, interest rate)
-Returns the present value of an investment.
+####Returns the present value of an investment.
+<code>tvmPV(future value, time, interest rate)</code>
 
-####tvmFV(present value, interest rate, time)
-Returns the future value of an investment.
+####Returns the future value of an investment.
+<code>tvmFV(present value, interest rate, time)</code>
 
-####tvmR(present value, future value, time)
-Returns an estimated annual interest rate
+####Returns an estimated annual interest rate
+<code>tvmR(present value, future value, time)</code>
 
-####tvmN(present value, future value, interest rate)
-Returns the amount of time (usually years) of the investment
+####Returns the amount of time (usually years) of the investment
+<code>tvmN(present value, future value, interest rate)</code>
 
-####tvmPVoa(interest rate, time, payment)
-Returns the present value of an ordinary annuity
+####Returns the present value of an ordinary annuity
+<code>tvmPVoa(interest rate, time, payment)</code>
 
-####tvmFVad(interest rate, time, payment) 
-Returns the present value of an annuity due
+####Returns the present value of an annuity due
+<code>tvmFVad(interest rate, time, payment)</code>
 
-####tvmFVoa(interest rate, time, payment) 
-Returns the future value of an ordinary annuity
+####Returns the future value of an ordinary annuity
+<code>tvmFVoa(interest rate, time, payment)</code>
 
-####tvmFVad(interest rate, time, payment)
-Returns the future value of an annuity due
+####Returns the future value of an annuity due
+<code>tvmFVad(interest rate, time, payment)</code>
 
-####tvmPMToa(time, interest rate, present value) 
-Returns the payment of an ordinary annuity given the present value
+####Returns the payment of an ordinary annuity given the present value
+<code>tvmPMToa(time, interest rate, present value)</code>
 
-####tvmPMToaF(time, interest rate, present value) 
-Returns the payment of an ordinary annuity given the future value
+####Returns the payment of an ordinary annuity given the future value
+<code>tvmPMToaF(time, interest rate, present value)</code>
 
-####tvmPVAoadp(interest rate, time, payment, deferral period)
-Returns the present value of an ordinary annuity with a deferral period
+####Returns the present value of an ordinary annuity with a deferral period
+<code>tvmPVAoadp(interest rate, time, payment, deferral period)</code>
 
-####tvmPVP(payment, interest rate) 
-Returns the present value of a perpetuity with no deferral period
+####Returns the present value of a perpetuity with no deferral period
+<code>tvmPVP(payment, interest rate)</code>
 
-####tvmPVPdp(interest rate, payment, deferral period)
-Returns the present value of a perpetuity with a deferral period
+####Returns the present value of a perpetuity with a deferral period
+<code>tvmPVPdp(interest rate, payment, deferral period)</code>
 
-####tvmPVPg(interest rate, payment, growth rate) 
-Returns the present value of a perpetuity with a deferral period
+####Returns the present value of a perpetuity with a deferral period
+<code>tvmPVPg(interest rate, payment, growth rate)</code>
 
-####tvmPVPgdp(interest rate, payment, deferral period, growth rate)
-Returns the present value of a growing perpetuity with a deferral period
+####Returns the present value of a growing perpetuity with a deferral period
+<code>tvmPVPgdp(interest rate, payment, deferral period, growth rate)</code>
 
 <em>More documentation is on its way as functions are added!</em>
