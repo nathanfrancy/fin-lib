@@ -12,53 +12,63 @@
 
 <body>
 
-<!--
 	<div class="jumbotron">
 		<h1>tvm.js</h1>
-		<p>An easy way to embed time value of money related functions into your webpages.</p>
+		<p>An easy way to embed time value of money calculations in your webpages.</p>
 	</div>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				<h4>Future value payout</h4>
+				<h4>Present value</h4>
 			</div>
 			<div class="col-sm-8">
-				<form id="tvmFV">
+				<form id="tvmPV">
 					<div class="form-group">
-						<label class="col-sm-2">PV</label>
+						<label class="col-sm-2">Future value</label>
 						<div class="col-sm-10">
-							<input type="text" class="pv form-control" placeholder="Present value" /><br />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2">IR</label>
-						<div class="col-sm-10">
-							<input type="text" class="ir form-control" placeholder="Interest rate" /><br />
+							<input type="text" class="fv form-control" /><br />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2">Time</label>
 						<div class="col-sm-10">
-							<input type="text" class="n form-control" placeholder="n" /><br />
+							<input type="text" class="n form-control"  /><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2">Interest Rate</label>
+						<div class="col-sm-10">
+							<input type="text" class="r form-control" /><br />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2">Result:</label>
 						<div class="col-sm-10">
-							<input type="text" class="pmt form-control" placeholder="Result" /><br />
+							<input type="text" class="result form-control" placeholder="Result" /><br />
 						</div>
 					</div>
-					<button class="btn btn-primary">Calculate</button>
+					<button class="tvmPVbutton btn btn-primary">Calculate</button>
 				</form>
 			</div>
 		</div>
 		
-		
 	</div>
 
-	-->
-
 </body>
+
+<script>
+$("#tvmPV button").click(function(e) {
+	e.preventDefault();
+	var fv = parseInt($(this).parent("#tvmPV").find(".fv").val() );
+	var n = parseInt($(this).parent("#tvmPV").find(".n").val() );
+	var r = parseInt($(this).parent("#tvmPV").find(".r").val() );
+	var result = tvmPV(fv, n, r);
+	alert(result);
+	$(this).parent("#tvmPV").find(".result").val(result);
+});
+
+
+</script>
 
 </html>
