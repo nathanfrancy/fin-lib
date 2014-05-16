@@ -6,7 +6,7 @@ Here are a few examples of when you would want to use something like this:
 * How long would it take to double my money with an 8% interest rate? <code>tvmDoubleMoney(.08)</code>
 * What is the future value of an annuity due with $500 payments, for 10 years earning 4% interest? <code>tvmFVad(0.04, 10, 500)</code>
 
-## Documentation
+##Time Value of Money Calculation Functions
 
 ####Returns the present value of an investment.
 <code>tvmPV(future value, time, interest rate)</code>
@@ -53,4 +53,16 @@ Here are a few examples of when you would want to use something like this:
 ####Returns the present value of a growing perpetuity with a deferral period
 <code>tvmPVPgdp(interest rate, payment, deferral period, growth rate)</code>
 
-<em>More documentation is on its way as functions are added!</em>
+##Utility Functions
+
+####Returns the periodic rate given the annual rate and payments per year
+<code>tvmUtilPeriodicRate(stated annual interest rate, payments per year)</code>
+
+####Returns the total number of payments through life of investment
+<code>tvmUtilPayments(payments per year, years)</code>
+
+####Returns the effective rate given the annual rate and payments per year
+<code>tvmUtilEffectiveRate(annual rate, payments per year)</code>
+
+####Returns a rounded dollar amount with dollar sign
+<code>tvmUtilDollar(amount)</code>

@@ -256,16 +256,6 @@ function tvmUtilEffectiveRate(r, m) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function tvmUtilDollar(amount) {
+    return "$ " + ( Math.round(amount * 100) / 100);
+}
