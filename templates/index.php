@@ -13,8 +13,13 @@
 <body>
 
     <div class="jumbotron">
-        <h1>tvm.js</h1>
+        <h1>tvm.js
+        <a href="https://github.com/nathanfrancy/tvm">
+            <img src="../assets/img/gh.png" class="gh" />
+        </a>
+        </h1>
         <p>An easy way to embed time value of money calculations in your webpages.</p>
+        
     </div>
 
     <div class="container">
@@ -67,7 +72,7 @@
 
 <script>
     $(".calculation").hide(); // hide all the forms initially
-
+    
     $(".initB").click(function() {
         $(".calculation").hide();
         $("#" + $(this).attr("calc")).show();
