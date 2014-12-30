@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+    <head>
+        <script src="js/tvm.js"></script>
+        <script>
+        function evaluateCommand() {
+            var output = eval(document.getElementById("command").value);
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = output;
+            return false;
+        }
+        function getAllMethods(object) {
+            return Object.getOwnPropertyNames(object).filter(function(property) {
+                return typeof object[property] == 'function';
+            });
+        }
+        </script>
+    </head>
+
+    <body>
+        <input id="command" placeholder="Enter command">&nbsp;
+        <button type="button" onclick="return evaluateCommand();">Evaluate</button>
+        <br>
+        <p>Output:</p>
+        <div id="output"></div>
+    </body>
+    
+</html>
