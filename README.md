@@ -5,67 +5,9 @@ Time value of money (or tvm for short) is a little project that helps you (or a 
 The library is implemented through the `TVM` object, and will return the needed data by using methods within. Simply run `TVM.methodName()` for results.
 
 Here are a few examples of when you would want to use something like this:
-* What is the present value of an investment with a future value of $1,000,000, with a 20 year investment earning 10% interest? This can be solved using: <code>TVM.pv(1000000, 20, .1)</code>
-* How long would it take to double my money with an 8% interest rate? <code>TVM.doubleMoney(.08)</code>
-* What is the future value of an annuity due with $500 payments, for 10 years earning 4% interest? <code>TVM.fv_ad(0.04, 10, 500)</code>
+* What is the present value of an investment with a future value of $1,000,000, with a 20 year investment earning 10% interest? This can be solved using: `TVM.pv(1000000, 20, .1)`
+* How long would it take to double my money with an 8% interest rate? `TVM.util_doubleMoney(.08)`
+* What is the future value of an annuity due with $500 payments, for 10 years earning 4% interest? `TVM.fv_ad(0.04, 10, 500)`
 
-##Time Value of Money Calculation Functions
-
-####Returns the present value of an investment.
-<code>tvmPV(future value, time, interest rate)</code>
-
-####Returns the future value of an investment.
-<code>tvmFV(present value, interest rate, time)</code>
-
-####Returns an estimated annual interest rate
-<code>tvmR(present value, future value, time)</code>
-
-####Returns the amount of time (usually years) of the investment
-<code>tvmN(present value, future value, interest rate)</code>
-
-####Returns the present value of an ordinary annuity
-<code>tvmPVoa(interest rate, time, payment)</code>
-
-####Returns the present value of an annuity due
-<code>tvmFVad(interest rate, time, payment)</code>
-
-####Returns the future value of an ordinary annuity
-<code>tvmFVoa(interest rate, time, payment)</code>
-
-####Returns the future value of an annuity due
-<code>tvmFVad(interest rate, time, payment)</code>
-
-####Returns the payment of an ordinary annuity given the present value
-<code>tvmPMToa(time, interest rate, present value)</code>
-
-####Returns the payment of an ordinary annuity given the future value
-<code>tvmPMToaF(time, interest rate, present value)</code>
-
-####Returns the present value of an ordinary annuity with a deferral period
-<code>tvmPVAoadp(interest rate, time, payment, deferral period)</code>
-
-####Returns the present value of a perpetuity with no deferral period
-<code>tvmPVP(payment, interest rate)</code>
-
-####Returns the present value of a perpetuity with a deferral period
-<code>tvmPVPdp(interest rate, payment, deferral period)</code>
-
-####Returns the present value of a perpetuity with a deferral period
-<code>tvmPVPg(interest rate, payment, growth rate)</code>
-
-####Returns the present value of a growing perpetuity with a deferral period
-<code>tvmPVPgdp(interest rate, payment, deferral period, growth rate)</code>
-
-##Utility Functions
-
-####Returns the periodic rate given the annual rate and payments per year
-<code>tvmUtilPeriodicRate(stated annual interest rate, payments per year)</code>
-
-####Returns the total number of payments through life of investment
-<code>tvmUtilPayments(payments per year, years)</code>
-
-####Returns the effective rate given the annual rate and payments per year
-<code>tvmUtilEffectiveRate(annual rate, payments per year)</code>
-
-####Returns a rounded dollar amount with dollar sign
-<code>tvmUtilDollar(amount)</code>
+##Documentation
+For further documentation, please refer to the demo site.
