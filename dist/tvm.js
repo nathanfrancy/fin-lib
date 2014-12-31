@@ -145,7 +145,7 @@ var TVM = {
     },
 
     /**
-     * Returns the present value of a perpetuity with a deferral period
+     * Returns the present value of a growing perpetuity
      * @param r : annual interest rate
      * @param pmt : size of the payments
      * @param g : growing rate
@@ -163,7 +163,7 @@ var TVM = {
      * @param g : growing rate
      * @returns pvp : present value of a growing perpetuity
      */
-    pv_p_gdp: function(r, pmt, def, g) {
+    pv_p_gd: function(r, pmt, def, g) {
         return pmt * ( 1 / ( r - g ) ) * ( Math.pow( (1 + r), -(def) ) );
     },
 

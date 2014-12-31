@@ -90,6 +90,91 @@
         ]
     },
     {
+        "name": "pva_oa_d",
+        "description": "Present value of ordinary annuity with deferral period",
+        "parameters": [
+            "interest rate",
+            "time",
+            "payment",
+            "deferral"
+        ]
+    },
+    {
+        "name": "pv_p",
+        "description": "Present value of a non-growing perpetuity without a deferral period",
+        "parameters": [
+            "payment",
+            "interest rate"
+        ]
+    },
+    {
+        "name": "pv_p_d",
+        "description": "Present value of a non-growing perpetuity with a deferral period",
+        "parameters": [
+            "interest rate",
+            "payment",
+            "deferral"
+        ]
+    },
+    {
+        "name": "pv_p_g",
+        "description": "Present value of a growing perpetuity without a deferral period",
+        "parameters": [
+            "interest rate",
+            "payment",
+            "growth rate"
+        ]
+    },
+    {
+        "name": "pv_p_gd",
+        "description": "Present value of a growing perpetuity with a deferral period",
+        "parameters": [
+            "interest rate",
+            "payment",
+            "growth rate"
+        ]
+    },
+    {
+        "name": "pv_mr_fv",
+        "description": "Present value of an investment with payments per year, given future value",
+        "parameters": [
+            "future value",
+            "time",
+            "payments per year",
+            "interest rate"
+        ]
+    },
+    {
+        "name": "pv_mr_pmt",
+        "description": "Present value of an investment with payments per year, given payment value",
+        "parameters": [
+            "time",
+            "payments per year",
+            "interest rate",
+            "payment"
+        ]
+    },
+    {
+        "name": "pmt_mr_pv",
+        "description": "Payment value given a set of payments per year and present value",
+        "parameters": [
+            "present value",
+            "time",
+            "payments per year",
+            "interest rate"
+        ]
+    },
+    {
+        "name": "fv_mr_pv",
+        "description": "Future value given a set number of payments per year and present value",
+        "parameters": [
+            "present value",
+            "time",
+            "payments per year",
+            "interest rate"
+        ]
+    },
+    {
         "name": "util_doubleMoney",
         "description": "Estimated time to double money on an investment",
         "parameters": [
