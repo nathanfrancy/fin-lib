@@ -131,6 +131,7 @@
         "parameters": [
             "interest rate",
             "payment",
+            "deferral",
             "growth rate"
         ]
     },
