@@ -10,4 +10,4 @@ Here are a few examples of when you would want to use something like this:
 * What is the future value of an annuity due with $500 payments, for 10 years earning 4% interest? `TVM.fv_ad(0.04, 10, 500)`
 
 ##Documentation
-For further documentation, please refer to the demo site.
+For further documentation, please refer to the [demo site](http://nathanfrancy.github.io/tvm/).
