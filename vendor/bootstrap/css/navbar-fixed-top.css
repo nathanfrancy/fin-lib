@@ -6,3 +6,11 @@ body {
 #outputContainer, #guideContainer {
     display: none;
 }
+
+#instructions {
+    display: none;
+}
+
+#documentationLink:hover {
+    cursor: pointer;
+}

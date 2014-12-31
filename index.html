@@ -36,9 +36,11 @@
     <div class="container">
         <div class="jumbotron">
             <h1>tvm.js <small>time value of money</small></h1>
-            <p>Enter a command below to try it out or use your browser's console. Refer to the documentation below for the existing functions.</p>
-            <p>Be sure to include comma-separated parameters in the parentheses for your problem.</p>
-            <p>Example: <code>TVM.pv(1000, 10, 0.08)</code></p>
+            <p><button id="toggleInstructionsButton" class="btn btn-default btn-sm">See Instructions</button></p>
+            <div id="instructions">
+                <p>Enter a command below to try it out or use your browser's console. Refer to the <a id="documentationLink">documentation</a> below for the existing functions.</p>
+                <p>Be sure to include comma-separated parameters in the parentheses for your problem.</p>
+            </div>
             <div id="guideContainer">
                 <p>Parameters: <span><code id="guide"></code></span></p>
             </div>
@@ -54,7 +56,7 @@
             </div>
         </div>
         <div class="container-fluid">
-            <h1 class="page-header">Documentation</h1>
+            <h1 class="page-header" id="documentationHeader">Documentation</h1>
             <div class="row">
                 <div class="col-sm-12">
                     <div id="documentationContainer"></div>
@@ -122,6 +124,25 @@
         $("#guideContainer").slideDown();
         $('html, body').animate({
             scrollTop: $(".jumbotron").offset().top
+        }, 500);
+    });
+        
+    $(document).on("click", "#toggleInstructionsButton", function(e){
+        e.preventDefault();
+        $("#instructions").slideToggle();
+        $("#toggleInstructionsButton").toggleClass("active");
+        /*
+        $('html, body').animate({
+            scrollTop: $(".jumbotron").offset().top
+        }, 500);
+        */
+    });
+        
+    $(document).on("click", "#documentationLink", function(e){
+        e.preventDefault();
+        
+        $('html, body').animate({
+            scrollTop: $("#documentationHeader").offset().top
         }, 500);
     });
     </script>
