@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 
         uglify: {
             build: {
-                src: 'js/tvm.js',
+                src: 'dist/tvm.js',
                 dest: 'dist/tvm.min.js'
             }
         }

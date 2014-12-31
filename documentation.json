@@ -1,0 +1,99 @@
+[
+    {
+        "name": "pv",
+        "description": "Present value of an investment",
+        "parameters": [
+            "future value",
+            "time",
+            "interest rate"
+        ]
+    },
+    {
+        "name": "fv",
+        "description": "Future value of an investment",
+        "parameters": [
+            "present value",
+            "interest rate",
+            "time"
+        ]
+    },
+    {
+        "name": "r",
+        "description": "Estimated annual interest rate",
+        "parameters": [
+            "present value",
+            "future value",
+            "time"
+        ]
+    },
+    {
+        "name": "n",
+        "description": "Time of the investment",
+        "parameters": [
+            "present value",
+            "future value",
+            "interest rate"
+        ]
+    },
+    {
+        "name": "pv_oa",
+        "description": "Present value of an ordinary annuity",
+        "parameters": [
+            "interest rate",
+            "time",
+            "payment"
+        ]
+    },
+    {
+        "name": "fv_oa",
+        "description": "Future value of an ordinary annuity",
+        "parameters": [
+            "interest rate",
+            "time",
+            "payment"
+        ]
+    },
+    {
+        "name": "pv_ad",
+        "description": "Present value of an annuity due",
+        "parameters": [
+            "interest rate",
+            "time",
+            "payment"
+        ]
+    },
+    {
+        "name": "fv_ad",
+        "description": "Future value of an annuity due",
+        "parameters": [
+            "interest rate",
+            "time",
+            "payment"
+        ]
+    },
+    {
+        "name": "pmt_oa_pv",
+        "description": "Payment value of ordinary annuity, given present value",
+        "parameters": [
+            "time",
+            "interest rate",
+            "present value"
+        ]
+    },
+    {
+        "name": "pmt_oa_fv",
+        "description": "Payment value of ordinary annuity, given future value",
+        "parameters": [
+            "time",
+            "interest rate",
+            "future value"
+        ]
+    },
+    {
+        "name": "util_doubleMoney",
+        "description": "Estimated time to double money on an investment",
+        "parameters": [
+            "interest rate"
+        ]
+    }
+]

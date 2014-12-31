@@ -1,29 +1,124 @@
 <!doctype html>
 <html>
 
-    <head>
-        <script src="js/tvm.js"></script>
-        <script>
-        function evaluateCommand() {
-            var output = eval(document.getElementById("command").value);
-            var outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = output;
-            return false;
-        }
-        function getAllMethods(object) {
-            return Object.getOwnPropertyNames(object).filter(function(property) {
-                return typeof object[property] == 'function';
-            });
-        }
-        </script>
-    </head>
+<head>
+    <!-- jQuery and Bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/navbar-fixed-top.css">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap-typeahead.min.js"></script>
+</head>
 
-    <body>
-        <input id="command" placeholder="Enter command">&nbsp;
-        <button type="button" onclick="return evaluateCommand();">Evaluate</button>
-        <br>
-        <p>Output:</p>
-        <div id="output"></div>
-    </body>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">tvm.js</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://www.github.com/nathanfrancy/tvm">Github</a></li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.github.com/nathanfrancy/tvm">Github</a></li>
+                </ul>-->
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>tvm.js <small>time value of money</small></h1>
+            <p>Enter a command below to try it out or use your browser's console. Refer to the documentation below for the existing functions.</p>
+            <div id="guideContainer">
+                <p>Parameters: <span><code id="guide"></code></span></p>
+            </div>
+            <input id="command" data-provide="typeahead" placeholder="Enter command here" class="form-control input-lg typeahead" autocomplete="off">&nbsp;
+            <p>
+                <button type="button" class="btn btn-lg btn-primary" onclick="return evaluateCommand();">Evaluate</button>
+                <button type="button" class="btn btn-lg btn-default" onclick="return clearCommand();">Clear</button>
+            </p>
+            <br>
+            <div id="outputContainer">
+                <p>Output:</p>
+                <div id="output"></div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <h1 class="page-header">Documentation</h1>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="documentationContainer"></div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+    </div>
     
+    <script src="dist/tvm.js"></script>
+    <script>
+        
+    $.getJSON('documentation.json', function(data) {
+        var documentationHTML = "";
+        for (var index = 0; index < data.length; ++index) {
+            var paramText = data[index].parameters.join(", ");
+            var thisDocumentationText = "<h3>"+ data[index].description +"</h3>";
+            thisDocumentationText += "<p><code>TVM." + data[index].name +"("+ paramText + ")</code></p>";
+            thisDocumentationText += "<p><button class='btn btn-default btn-sm runCode' tvmCode='TVM." + data[index].name + "()' params='"+paramText+"'>Run this function</button></p>";
+            thisDocumentationText += "<hr>";
+            documentationHTML += thisDocumentationText;
+        }
+        $("#command").typeahead({source:["TVM.pv()"]});
+        $("#documentationContainer").html(documentationHTML);
+    });
+        
+    function evaluateCommand() {
+        var command = document.getElementById("command").value;
+        if (command !== "" && command !== null) {
+            if (command.indexOf("TVM") > -1) {
+                var output = eval(command);
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = output;
+                $("#outputContainer").slideDown();
+            }
+            else {
+                $("#output").html("Cool command, but isn't one from this library.");
+                $("#outputContainer").slideDown();
+            }
+        }
+        else {
+            $("#output").html("Invalid command.");
+            $("#outputContainer").slideDown();
+        }
+        return false;
+    }
+        
+    function clearCommand() {
+        $("#command").val('');
+        $("#output").html('');
+        $("#outputContainer").slideUp();
+        $("#guideContainer").slideUp();
+    }
+        
+    $(document).on("click", ".runCode", function(e){
+        e.preventDefault();
+        var code = $(this).attr("tvmCode");
+        $("#command").val(code);
+        $("#guide").html($(this).attr("params"));
+        $("#guideContainer").slideDown();
+        $('html, body').animate({
+            scrollTop: $(".jumbotron").offset().top
+        }, 500);
+    });
+    </script>
+
+</body>
+
 </html>

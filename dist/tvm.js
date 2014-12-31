@@ -1,7 +1,6 @@
 var TVM = {
     methods : [],
     
-    
     /**
      * Returns present value of an investment
      * @param fv : future value
@@ -33,15 +32,6 @@ var TVM = {
      */
     r: function(pv, fv, n) {
         return Math.pow((fv / pv), (1 / n)) - 1;
-    },
-    
-    /**
-     * Returns the time (n) it will take to double your money given an annual interest rate
-     * @param r : annual interest rate
-     * @returns n : time
-     */
-    doubleMoney: function(r) {
-        return Math.log(2) / Math.log(1 + r);
     },
     
     /**
@@ -100,13 +90,13 @@ var TVM = {
     },
 
     /**
-     * Returns the payment of an ordinary annuity given n, r, pv
+     * Returns the payment of an ordinary annuity given present value
      * @param n : time
      * @param r : annual interest rate
      * @param pv : present value of an annuity
      * @returns pmt : payment needed in an ordinary annuity
      */
-    pmt_oa: function(n, r, pv) {
+    pmt_oa_pv: function(n, r, pv) {
         return pv / (((1 - Math.pow((1 + r), (-(n))))) / r );
     },
 
@@ -117,7 +107,7 @@ var TVM = {
      * @param fv : future value of the annuity
      * @returns pmt : annual payment of the annuity
      */
-    pmt_oa: function(n, r, fv) {
+    pmt_oa_fv: function(n, r, fv) {
         return fv / ( ( ( Math.pow( (1 + r), (n) ) ) - 1 ) / r );
     },
 
@@ -186,7 +176,7 @@ var TVM = {
      * @returns pv : present value of the investment
      */
     pv_mr_fv: function(fv, n, m, r) {
-        return fv * ( Math.pow( (1 + tvmUtilPeriodicRate(r,m) ), -(tvmUtilPayments(m,n)) ) );
+        return fv * ( Math.pow( (1 + this.util_periodicRate(r,m) ), -(this.util_payments(m,n)) ) );
     },
 
     /**
@@ -198,7 +188,7 @@ var TVM = {
      * @returns pv : present value of the investment
      */
     pv_mr_pmt: function(n, m, r, pmt) {
-        return pmt * ( ( 1 - ( Math.pow( (1 + tvmUtilPeriodicRate(r,m)), -(tvmUtilPayments(m, n)) ) ) ) / tvmUtilPeriodicRate(r,m) );
+        return pmt * ( ( 1 - ( Math.pow( (1 + this.util_periodicRate(r,m)), -(this.util_payments(m, n)) ) ) ) / this.util_periodicRate(r,m) );
     },
 
     /**
@@ -210,7 +200,7 @@ var TVM = {
      * @returns pmt : size of the payments
      */
     pmt_mr_pv: function(pv, n, m, r) {
-        return pv / ( ( 1 - ( Math.pow( ( 1 + tvmUtilPeriodicRate(r,m) ), -( tvmUtilPayments(m,n) ) ) ) ) / tvmUtilPeriodicRate(r,m) );
+        return pv / ( ( 1 - ( Math.pow( ( 1 + this.util_periodicRate(r,m) ), -( this.util_payments(m,n) ) ) ) ) / this.util_periodicRate(r,m) );
     },
 
     /**
@@ -222,13 +212,22 @@ var TVM = {
      * @returns pmt : size of the payments
      */
     fv_mr_pv: function(pv, n, m, r) {
-        return pv * ( Math.pow( ( 1 + tvmUtilPeriodicRate(r, m) ), ( tvmUtilPayments(m,n) ) ) );
+        return pv * ( Math.pow( ( 1 + this.util_periodicRate(r, m) ), ( this.util_payments(m,n) ) ) );
     },
         
     /******************************************************************
     UTIL functions
     ******************************************************************/
 
+    /**
+     * Returns the time (n) it will take to double your money given an annual interest rate
+     * @param r : annual interest rate
+     * @returns n : time
+     */
+    util_doubleMoney: function(r) {
+        return Math.log(2) / Math.log(1 + r);
+    },
+    
     /**
      * Returns the periodic rate given the nominal (stated) annual rate and number of payments per year
      * @param r : nominal or stated annual rate of interest
@@ -256,7 +255,7 @@ var TVM = {
      * @returns r(effective) : effective interest rate
      */
     util_effectiveRate: function(r, m) {
-        return ( Math.pow( ( 1 + tvmUtilPeriodicRate(r,m) ), ( m ) ) ) - 1;
+        return ( Math.pow( ( 1 + this.util_periodicRate(r,m) ), ( m ) ) ) - 1;
     },
 
     /**
@@ -278,10 +277,3 @@ var TVM = {
         return this.methods;
     }
 };
-
-
-
-
-
-
-
