@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <!-- jQuery and Bootstrap -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/bootstrap/css/navbar-fixed-top.css">
@@ -44,11 +44,26 @@
             <div id="guideContainer">
                 <p>Parameters: <span><code id="guide"></code></span></p>
             </div>
+            
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group">
+                  <div class="input-group-addon input-lg">TVM.</div>
+                  <input type="text" class="form-control input-lg" id="command" placeholder="Enter function here">
+                </div>
+              </div>
+              <button type="button" onclick="evaluateCommand();" class="btn btn-primary btn-lg">Evaluate command</button>
+                <button type="button" onclick="clearCommand();" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-trash"></span></button>
+            </form>
+            
+            <!--
             <input id="command" data-provide="typeahead" placeholder="Enter command here" class="form-control input-lg typeahead" autocomplete="off">&nbsp;
             <p>
                 <button type="button" class="btn btn-lg btn-primary" onclick="return evaluateCommand();">Evaluate</button>
                 <button type="button" class="btn btn-lg btn-default" onclick="return clearCommand();">Clear</button>
             </p>
+            -->
             <br>
             <div id="outputContainer">
                 <p>Output:</p>
@@ -73,23 +88,33 @@
     
     <script src="dist/tvm.js"></script>
     <script>
-        
-    $.getJSON('documentation.json', function(data) {
-        var documentationHTML = "";
-        for (var index = 0; index < data.length; ++index) {
-            var paramText = data[index].parameters.join(", ");
-            var thisDocumentationText = "<h3>"+ data[index].description +"</h3>";
-            thisDocumentationText += "<p><code>TVM." + data[index].name +"("+ paramText + ")</code></p>";
-            thisDocumentationText += "<p><button class='btn btn-default btn-sm runCode' tvmCode='TVM." + data[index].name + "()' params='"+paramText+"'>Run this function</button></p>";
-            thisDocumentationText += "<hr>";
-            documentationHTML += thisDocumentationText;
-        }
-        $("#command").typeahead({source:["TVM.pv()"]});
-        $("#documentationContainer").html(documentationHTML);
+    $(document).ready(function() {
+        $.getJSON('documentation.json', function(data) {
+            var documentationHTML = "";
+            for (var index = 0; index < data.length; ++index) {
+                var paramText = data[index].parameters.join(", ");
+                var thisDocumentationText = "<h3>"+ data[index].description +"</h3>";
+                thisDocumentationText += "<p><code>TVM." + data[index].name +"("+ paramText + ")</code></p>";
+                thisDocumentationText += "<p><button class='btn btn-default btn-sm runCode' tvmCode='" + data[index].name + "()' params='"+paramText+"'>Run this function</button></p>";
+                thisDocumentationText += "<hr>";
+                documentationHTML += thisDocumentationText;
+            }
+
+            var functions = TVM.allMethods();
+            var methods = [];
+            for (var j=0; j<functions.length; j++) {
+                methods.push(functions[j] + "()");
+            }
+            $("#command").typeahead({ source: methods });
+            
+            $("#documentationContainer").html(documentationHTML);
+            
+            
+        });
     });
         
     function evaluateCommand() {
-        var command = document.getElementById("command").value;
+        var command = "TVM." + document.getElementById("command").value;
         if (command !== "" && command !== null) {
             if (command.indexOf("TVM") > -1) {
                 var output = eval(command);
