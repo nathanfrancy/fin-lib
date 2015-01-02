@@ -185,13 +185,32 @@
         ]
     },
     {
-        "name": "npv_sameflows",
+        "name": "npv_sameFlows",
         "description": "Returns the net present value with cash flows that are the same value",
         "parameters": [
             "initial investment",
             "cash flow value",
             "cash flow occurences",
             "discount rate"
+        ]
+    },
+    {
+        "name": "simpleInterest",
+        "description": "Returns the simple interest earned",
+        "parameters": [
+            "principal",
+            "interest rate",
+            "number of periods"
+        ]
+    },
+    {
+        "name": "compoundInterest",
+        "description": "Returns the compound interest earned",
+        "parameters": [
+            "principal",
+            "interest rate",
+            "compoundings per period",
+            "number of periods"
         ]
     },
     {
