@@ -176,6 +176,25 @@
         ]
     },
     {
+        "name": "npv",
+        "description": "Returns the net present value with cash flows that are different",
+        "parameters": [
+            "initial investment",
+            "cash flows []",
+            "discount rate"
+        ]
+    },
+    {
+        "name": "npv_sameflows",
+        "description": "Returns the net present value with cash flows that are the same value",
+        "parameters": [
+            "initial investment",
+            "cash flow value",
+            "cash flow occurences",
+            "discount rate"
+        ]
+    },
+    {
         "name": "util_doubleMoney",
         "description": "Estimated time to double money on an investment",
         "parameters": [

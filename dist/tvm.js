@@ -214,6 +214,41 @@ var TVM = {
     fv_mr_pv: function(pv, n, m, r) {
         return pv * ( Math.pow( ( 1 + this.util_periodicRate(r, m) ), ( this.util_payments(m,n) ) ) );
     },
+    
+    /**
+     * Returns the net present value, cash flows different
+     * @param i : initial investment (positive value that will be evaluated as negative)
+     * @param flows : array of cash flows
+     * @param r : discount rate
+     */
+    npv: function(i, flows, r) {
+        var pvs = [];
+        var npv = -(i);
+        for (var i=0; i<flows.length; i++) {
+            var pv = flows[i]/(Math.pow((1+r),(i+1)));
+            pvs.push(pv);
+            npv = npv + pv;
+        }
+        return npv;
+    },
+    
+    /**
+     * Returns the net present value, cash flows same amount
+     * @param i : initial investment (positive value that will be evaluated as negative)
+     * @param flow_amount : cash flow amount
+     * @param flow_times : number of times the flow occurs
+     * @param r : discount rate
+     */
+    npv_sameflows: function(i, flow_amount, flow_times, r) {
+        var pvs = [];
+        var npv = -(i);
+        for (var i=0; i<flow_times; i++) {
+            var pv = flow_amount/(Math.pow((1+r),(i+1)));
+            pvs.push(pv);
+            npv = npv + pv;
+        }
+        return npv;
+    },
         
     /******************************************************************
     UTIL functions
