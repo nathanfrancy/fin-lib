@@ -106,29 +106,32 @@
                 methods.push(functions[j] + "()");
             }
             $("#command").typeahead({ source: methods });
-            
             $("#documentationContainer").html(documentationHTML);
-            
-            
         });
     });
         
     function evaluateCommand() {
-        var command = "TVM." + document.getElementById("command").value;
-        if (command !== "" && command !== null) {
-            if (command.indexOf("TVM") > -1) {
+        var origCommand = document.getElementById("command").value;
+        var command = "TVM." + origCommand.trim();
+        var methodName = split(command);
+        
+        // Check if the command box is empty
+        if (origCommand !== "" && origCommand !== null) {
+            
+            // It's not null and is in the library.. so go for it
+            if ( $.inArray(methodName, TVM.allMethods()) >= 0) {
                 var output = eval(command);
                 var outputDiv = document.getElementById("output");
                 outputDiv.innerHTML = output;
                 $("#outputContainer").slideDown();
             }
             else {
-                $("#output").html("Cool command, but isn't one from this library.");
+                $("#output").html("Cool command, but it isn't one from this library.");
                 $("#outputContainer").slideDown();
             }
         }
         else {
-            $("#output").html("Invalid command.");
+            $("#output").html("Command field is blank. Try again?");
             $("#outputContainer").slideDown();
         }
         return false;
@@ -156,11 +159,6 @@
         e.preventDefault();
         $("#instructions").slideToggle();
         $("#toggleInstructionsButton").toggleClass("active");
-        /*
-        $('html, body').animate({
-            scrollTop: $(".jumbotron").offset().top
-        }, 500);
-        */
     });
         
     $(document).on("click", "#documentationLink", function(e){
@@ -170,6 +168,19 @@
             scrollTop: $("#documentationHeader").offset().top
         }, 500);
     });
+    
+    /* Function stripping off TVM. and anything after the first occurrence of parentheses
+       to get the actual function name */
+    function split(str) {
+        var i = str.indexOf("(");
+        if(i > 0)
+            str = str.slice(0, i);
+        else
+            str = "";     
+        
+        var parts = str.split('.', 2);
+        return parts[1];
+    }
     </script>
 
 </body>
