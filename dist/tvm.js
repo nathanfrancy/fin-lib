@@ -239,7 +239,7 @@ var TVM = {
      * @param flow_times : number of times the flow occurs
      * @param r : discount rate
      */
-    npv_sameflows: function(i, flow_amount, flow_times, r) {
+    npv_sameFlows: function(i, flow_amount, flow_times, r) {
         var pvs = [];
         var npv = -(i);
         for (var i=0; i<flow_times; i++) {
@@ -248,6 +248,27 @@ var TVM = {
             npv = npv + pv;
         }
         return npv;
+    },
+    
+    /**
+     * Returns the simple interest earned 
+     * @param p : principal amount
+     * @param r : interest rate
+     * @param t : number of periods
+     */
+    simpleInterest: function(p, r, t) {
+        return p * r * t;
+    },
+    
+    /**
+     * Returns the compound interest earned 
+     * @param p : principal amount
+     * @param r : interest rate
+     * @param m : compoundings per period
+     * @param t : number of periods
+     */
+    compoundInterest: function(p, r, m, t) {
+        return p * Math.pow((1 + (r/m)), m*t);
     },
         
     /******************************************************************
@@ -312,3 +333,6 @@ var TVM = {
         return this.methods;
     }
 };
+
+/*
+Source for many of these formulas: http://www.businessinsider.com/11-personal-finance-equations-you-need-to-know-2012-7?op=1 */
