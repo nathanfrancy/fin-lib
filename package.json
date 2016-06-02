@@ -1,7 +1,7 @@
 {
   "name": "fin-lib",
   "description": "Finance-related functions that calculate time-value-money.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "src/finlib.node.js",
   "scripts": {
