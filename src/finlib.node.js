@@ -1,6 +1,6 @@
-var TVM = {
-    methods : [],
-    
+var fin = {
+    methods:  [],
+
     /**
      * Returns present value of an investment
      * @param fv : future value
@@ -11,7 +11,7 @@ var TVM = {
     pv: function(fv, n, r) {
         return fv * Math.pow((1 + r), (-(n)));
     },
-    
+
     /**
      * Returns the future value of an investment given pv, r, n
      * @param pv : present value
@@ -22,7 +22,7 @@ var TVM = {
     fv: function(pv, r, n) {
         return pv * Math.pow(1 + r, n);
     },
-    
+
     /**
      * Returns an estimated annual interest rate with pv, fv, n
      * @param pv : present value
@@ -33,7 +33,7 @@ var TVM = {
     r: function(pv, fv, n) {
         return Math.pow((fv / pv), (1 / n)) - 1;
     },
-    
+
     /**
      * Returns the time of the investment given pv, fv and annual interest rate
      * @param pv : present value
@@ -44,7 +44,7 @@ var TVM = {
     n: function(pv, fv, r) {
         return Math.log(fv / pv) / Math.log(r + 1);
     },
-    
+
     /**
      * Returns the present value of an ordinary annuity given r, n, pmt
      * @param r : annual interest rate
@@ -55,7 +55,7 @@ var TVM = {
     pv_oa: function(r, n, pmt) {
         return pmt * ((1 - (Math.pow( (1 + r), (-(n))))) / r);
     },
-    
+
     /**
      * Returns the future value of an ordinary annuity given r, n, pmt
      * @param r : annual interest rate
@@ -66,7 +66,7 @@ var TVM = {
     fv_oa: function(r, n, pmt) {
         return pmt * (((Math.pow((1 + r),n)) - 1) / r);
     },
-    
+
     /**
      * Returns the present value of an annuity due given an interest rate, time and payment
      * @param r : annual interest rate
@@ -171,7 +171,7 @@ var TVM = {
      * Returns the present value of an investment with different number of payments per year, based on a future value
      * @param fv : future value of the investment
      * @param n : time (years)
-     * @param m : number of payments per year 
+     * @param m : number of payments per year
      * @param r : nominal or stated annual rate, which will be converted to periodic rate
      * @returns pv : present value of the investment
      */
@@ -214,7 +214,7 @@ var TVM = {
     fv_mr_pv: function(pv, n, m, r) {
         return pv * ( Math.pow( ( 1 + this.util_periodicRate(r, m) ), ( this.util_payments(m,n) ) ) );
     },
-    
+
     /**
      * Returns the net present value, cash flows different
      * @param i : initial investment (positive value that will be evaluated as negative)
@@ -231,7 +231,7 @@ var TVM = {
         }
         return npv;
     },
-    
+
     /**
      * Returns the net present value, cash flows same amount
      * @param i : initial investment (positive value that will be evaluated as negative)
@@ -249,9 +249,9 @@ var TVM = {
         }
         return npv;
     },
-    
+
     /**
-     * Returns the simple interest earned 
+     * Returns the simple interest earned
      * @param p : principal amount
      * @param r : interest rate
      * @param t : number of periods
@@ -259,9 +259,9 @@ var TVM = {
     simpleInterest: function(p, r, t) {
         return p * r * t;
     },
-    
+
     /**
-     * Returns the compound interest earned 
+     * Returns the compound interest earned
      * @param p : principal amount
      * @param r : interest rate
      * @param m : compoundings per period
@@ -270,7 +270,7 @@ var TVM = {
     compoundInterest: function(p, r, m, t) {
         return p * Math.pow((1 + (r/m)), m*t);
     },
-        
+
     /******************************************************************
     UTIL functions
     ******************************************************************/
@@ -283,7 +283,7 @@ var TVM = {
     util_doubleMoney: function(r) {
         return Math.log(2) / Math.log(1 + r);
     },
-    
+
     /**
      * Returns the periodic rate given the nominal (stated) annual rate and number of payments per year
      * @param r : nominal or stated annual rate of interest
@@ -320,7 +320,7 @@ var TVM = {
     util_formatDollar: function(amount) {
         return "$ " + ( Math.round(amount * 100) / 100);
     },
-    
+
     /**
      * Return all methods of the TVM object
      */
@@ -336,3 +336,5 @@ var TVM = {
 
 /*
 Source for many of these formulas: http://www.businessinsider.com/11-personal-finance-equations-you-need-to-know-2012-7?op=1 */
+
+module.exports = fin;
