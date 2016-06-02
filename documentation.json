@@ -3,17 +3,17 @@
         "name": "pv",
         "description": "Present value of an investment",
         "parameters": [
-            "future value",
+            "futureValue",
             "time",
-            "interest rate"
+            "interestRate"
         ]
     },
     {
         "name": "fv",
         "description": "Future value of an investment",
         "parameters": [
-            "present value",
-            "interest rate",
+            "presentValue",
+            "interestRate",
             "time"
         ]
     },
@@ -21,8 +21,8 @@
         "name": "r",
         "description": "Estimated annual interest rate",
         "parameters": [
-            "present value",
-            "future value",
+            "presentValue",
+            "futureValue",
             "time"
         ]
     },
@@ -30,16 +30,16 @@
         "name": "n",
         "description": "Time of the investment",
         "parameters": [
-            "present value",
-            "future value",
-            "interest rate"
+            "presentValue",
+            "futureValue",
+            "interestRate"
         ]
     },
     {
         "name": "pv_oa",
         "description": "Present value of an ordinary annuity",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "time",
             "payment"
         ]
@@ -48,7 +48,7 @@
         "name": "fv_oa",
         "description": "Future value of an ordinary annuity",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "time",
             "payment"
         ]
@@ -57,7 +57,7 @@
         "name": "pv_ad",
         "description": "Present value of an annuity due",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "time",
             "payment"
         ]
@@ -66,7 +66,7 @@
         "name": "fv_ad",
         "description": "Future value of an annuity due",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "time",
             "payment"
         ]
@@ -76,8 +76,8 @@
         "description": "Payment value of ordinary annuity, given present value",
         "parameters": [
             "time",
-            "interest rate",
-            "present value"
+            "interestRate",
+            "presentValue"
         ]
     },
     {
@@ -85,15 +85,15 @@
         "description": "Payment value of ordinary annuity, given future value",
         "parameters": [
             "time",
-            "interest rate",
-            "future value"
+            "interestRate",
+            "futureValue"
         ]
     },
     {
         "name": "pva_oa_d",
         "description": "Present value of ordinary annuity with deferral period",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "time",
             "payment",
             "deferral"
@@ -104,14 +104,14 @@
         "description": "Present value of a non-growing perpetuity without a deferral period",
         "parameters": [
             "payment",
-            "interest rate"
+            "interestRate"
         ]
     },
     {
         "name": "pv_p_d",
         "description": "Present value of a non-growing perpetuity with a deferral period",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "payment",
             "deferral"
         ]
@@ -120,29 +120,29 @@
         "name": "pv_p_g",
         "description": "Present value of a growing perpetuity without a deferral period",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "payment",
-            "growth rate"
+            "growthRate"
         ]
     },
     {
         "name": "pv_p_gd",
         "description": "Present value of a growing perpetuity with a deferral period",
         "parameters": [
-            "interest rate",
+            "interestRate",
             "payment",
             "deferral",
-            "growth rate"
+            "growthRate"
         ]
     },
     {
         "name": "pv_mr_fv",
         "description": "Present value of an investment with payments per year, given future value",
         "parameters": [
-            "future value",
+            "futureValue",
             "time",
-            "payments per year",
-            "interest rate"
+            "paymentsPerYear",
+            "interestRate"
         ]
     },
     {
@@ -150,8 +150,8 @@
         "description": "Present value of an investment with payments per year, given payment value",
         "parameters": [
             "time",
-            "payments per year",
-            "interest rate",
+            "paymentsPerYear",
+            "interestRate",
             "payment"
         ]
     },
@@ -159,39 +159,39 @@
         "name": "pmt_mr_pv",
         "description": "Payment value given a set of payments per year and present value",
         "parameters": [
-            "present value",
+            "presentValue",
             "time",
-            "payments per year",
-            "interest rate"
+            "paymentsPerYear",
+            "interestRate"
         ]
     },
     {
         "name": "fv_mr_pv",
         "description": "Future value given a set number of payments per year and present value",
         "parameters": [
-            "present value",
+            "presentValue",
             "time",
-            "payments per year",
-            "interest rate"
+            "paymentsPerYear",
+            "interestRate"
         ]
     },
     {
         "name": "npv",
         "description": "Returns the net present value with cash flows that are different",
         "parameters": [
-            "initial investment",
-            "cash flows []",
-            "discount rate"
+            "initialInvestment",
+            "cashFlows",
+            "discountRate"
         ]
     },
     {
         "name": "npv_sameFlows",
         "description": "Returns the net present value with cash flows that are the same value",
         "parameters": [
-            "initial investment",
-            "cash flow value",
-            "cash flow occurences",
-            "discount rate"
+            "initialInvestment",
+            "cashFlowValue",
+            "cashFlowOccurrences",
+            "discountRate"
         ]
     },
     {
@@ -199,8 +199,8 @@
         "description": "Returns the simple interest earned",
         "parameters": [
             "principal",
-            "interest rate",
-            "number of periods"
+            "interestRate",
+            "numberPeriods"
         ]
     },
     {
@@ -208,16 +208,16 @@
         "description": "Returns the compound interest earned",
         "parameters": [
             "principal",
-            "interest rate",
-            "compoundings per period",
-            "number of periods"
+            "interestRate",
+            "compoundingsPerPeriod",
+            "numberPeriods"
         ]
     },
     {
         "name": "util_doubleMoney",
         "description": "Estimated time to double money on an investment",
         "parameters": [
-            "interest rate"
+            "interestRate"
         ]
     }
 ]
